@@ -7,7 +7,7 @@ const Web3 = require('web3');
 const url = 'https://rinkeby.infura.io/v3/3b1489dee17f4a0f967085aabf1c2799'
 const web3 = new Web3(url);
 var Contract = require('web3-eth-contract');
-const abi = require('./Abi.json')
+const abi = require('./src/Abi.json')
 
 
 
@@ -49,10 +49,11 @@ let myContract = new web3.eth.Contract(
             console.log(values.address)
             console.log(values.blockNumber)
             
-                let newData=new Data( {transactionIndex:values.address,
-                        blockNumber:values.blockNumber}
-                        
-                        );
+                let newData=new Data(
+                     {transactionIndex:values.address,
+                     blockNumber:values.blockNumber
+                     }
+                     );
                         console.log(newData)
                         newData.save((err)=>{
                           
